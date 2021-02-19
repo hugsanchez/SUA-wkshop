@@ -2,6 +2,8 @@ const { conn, syncAndSeed, models: {Department, Employee} } = require('./db');
 const express = require('express');
 const app = express();
 
+//very often when we are sending JSON data back we'll actually prepend our route with api
+//this will be more critical when we start looking at single page application
 app.get('/api/departments', async(req,res,next) => {
     try{
         res.send( await Department.findAll({
